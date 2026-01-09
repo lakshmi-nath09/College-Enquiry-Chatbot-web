@@ -2,22 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>College Enquiry Chatbot 🤖</title>
-  <link rel="stylesheet" href="style.css?v=1.1">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="chat-container">
-    <div class="chat-header">College Enquiry Bot 🤖</div>
-    <div id="chat-box" class="chat-box">
-      <div class="bot-msg">Welcome to College Enquiry Bot 🤖<br>Type your query below (e.g., "Courses", "CSE", "Fee", "Timing")</div>
-    </div>
-    <div class="chat-input">
-      <input type="text" id="user-input" placeholder="Type your query...">
-      <button onclick="sendMessage()">Send</button>
+
+<div class="chat-container">
+
+  <div class="chat-header">
+    <img src="vmeg.png" class="logo">
+    College Enquiry Bot 🤖
+  </div>
+
+  <div id="chat-box" class="chat-box">
+    <div class="bot-msg">
+      Welcome to  Vardhaman College Enquiry Bot 🤖 <br>
+      Please select an option below 👇
     </div>
   </div>
-  <link rel="stylesheet" href="style.css?v=1.1">
-  <script src="script.js"></script>
+
+  <div class="options">
+    <button onclick="reply('courses')">Courses</button>
+    <button onclick="reply('fees')">Fees</button>
+    <button onclick="reply('timings')">Timings</button>
+    <button onclick="reply('placements')">Placements</button>
+    <button onclick="reply('library')">Library</button>
+    <button onclick="reply('hostel')">Hostel</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
