@@ -2,33 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>College Enquiry Chatbot 🤖</title>
+  <title>College Enquiry Bot 🤖</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="chat-container">
-
   <div class="chat-header">
-    <img src="logo.png" class="logo" alt="College Logo">
-    Vardhaman College Enquiry Bot 🤖
+    <img src="logo.png" >
+    <span>College Enquiry Bot 🤖</span>
   </div>
 
-  <div id="chat-box" class="chat-box">
-    <div class="bot-msg">
-      👋 Welcome to Vardhaman College Enquiry Bot 🤖 <br>
-      How can I help you today?
-    </div>
-  </div>
+  <div id="chat-box" class="chat-box"></div>
 
-  <div id="options" class="options">
-    <button onclick="handleOption('courses')">Courses</button>
-    <button onclick="handleOption('fees')">Fees</button>
-    <button onclick="handleOption('timings')">Timings</button>
-    <button onclick="handleOption('placements')">Placements</button>
-    <button onclick="handleOption('facilities')">Facilities</button>
-  </div>
+  <div class="options" id="options"></div>
 
+  <div class="chat-input">
+    <input type="text" id="user-input" placeholder="Type your message..." />
+    <button onclick="sendUserMessage()">Send</button>
+  </div>
 </div>
 
 <script src="script.js"></script>
