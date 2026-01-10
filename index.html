@@ -10,24 +10,23 @@
 <div class="chat-container">
 
   <div class="chat-header">
-    <img src="vmeg.png" class="logo">
-    College Enquiry Bot 🤖
+    <img src="logo.png" class="logo">
+    Vardhaman College Enquiry Bot 🤖
   </div>
 
   <div id="chat-box" class="chat-box">
     <div class="bot-msg">
-      Welcome to  Vardhaman College Enquiry Bot 🤖 <br>
-      Please select an option below 👇
+      👋 Welcome to Vardhaman College Enquiry Bot 🤖 <br>
+      What would you like to know?
     </div>
   </div>
 
-  <div class="options">
-    <button onclick="reply('courses')">Courses</button>
-    <button onclick="reply('fees')">Fees</button>
-    <button onclick="reply('timings')">Timings</button>
-    <button onclick="reply('placements')">Placements</button>
-    <button onclick="reply('library')">Library</button>
-    <button onclick="reply('hostel')">Hostel</button>
+  <div id="options" class="options">
+    <button onclick="handleOption('courses')">Courses</button>
+    <button onclick="handleOption('fees')">Fees</button>
+    <button onclick="handleOption('timings')">Timings</button>
+    <button onclick="handleOption('placements')">Placements</button>
+    <button onclick="handleOption('facilities')">Facilities</button>
   </div>
 
 </div>
