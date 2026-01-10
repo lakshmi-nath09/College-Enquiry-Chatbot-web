@@ -47,17 +47,17 @@ function handleOption(option) {
 
     else if (option === "fees") {
       addBotMsg("Fee details vary per course. Please check the official college website.");
-      backToMain();
+      reset();
     }
 
     else if (option === "timings") {
       addBotMsg("College timings are from 9:00 AM to 4:30 PM.");
-      backToMain();
+      reset();
     }
 
     else if (option === "placements") {
-      addBotMsg("Our college offers excellent placement support with top recruiters.");
-      backToMain();
+      addBotMsg("Our college provides excellent placement support with top recruiters.");
+      reset();
     }
 
     else if (option === "facilities") {
@@ -71,8 +71,8 @@ function handleOption(option) {
   }
 
   else if (step === "branches") {
-    addBotMsg(option.toUpperCase() + " focuses on strong academics, labs, and career opportunities.");
-    backToMain();
+    addBotMsg(option.toUpperCase() + " branch focuses on strong academics and career growth.");
+    reset();
   }
 
   else if (step === "facilities") {
@@ -81,11 +81,11 @@ function handleOption(option) {
     } else {
       addBotMsg("Separate hostel facilities are available for boys and girls.");
     }
-    backToMain();
+    reset();
   }
 }
 
-function backToMain() {
+function reset() {
   setTimeout(() => {
     addBotMsg("What else would you like to know?");
     setOptions([
@@ -96,5 +96,5 @@ function backToMain() {
       { text: "Facilities", value: "facilities" }
     ]);
     step = "main";
-  }, 600);
+  }, 500);
 }
