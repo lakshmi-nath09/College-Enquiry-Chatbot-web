@@ -13,14 +13,24 @@ function addBotMsg(text) {
   const chatBox = document.getElementById("chat-box");
   const div = document.createElement("div");
   div.className = "bot-msg";
-  div.innerText = text;
   chatBox.appendChild(div);
-  chatBox.scrollTop = chatBox.scrollHeight;
+
+  let i = 0;
+  const typing = setInterval(() => {
+    if (i < text.length) {
+      div.innerText += text.charAt(i);
+      i++;
+      chatBox.scrollTop = chatBox.scrollHeight;
+    } else {
+      clearInterval(typing);
+    }
+  }, 30);
 }
 
 function setOptions(buttons) {
   const optionsDiv = document.getElementById("options");
   optionsDiv.innerHTML = "";
+
   buttons.forEach(btn => {
     const b = document.createElement("button");
     b.innerText = btn.text;
@@ -33,8 +43,9 @@ function handleOption(option) {
   addUserMsg(option.toUpperCase());
 
   if (step === "main") {
+
     if (option === "courses") {
-      addBotMsg("We offer the following branches. Please choose one:");
+      addBotMsg("Sure 😊 Please select a branch you want to know about:");
       setOptions([
         { text: "CSE", value: "cse" },
         { text: "ECE", value: "ece" },
@@ -46,22 +57,22 @@ function handleOption(option) {
     }
 
     else if (option === "fees") {
-      addBotMsg("Fee details vary per course. Please check the official college website.");
-      reset();
+      addBotMsg("Fee details vary by course. Please refer to the official college website for exact information.");
+      goBack();
     }
 
     else if (option === "timings") {
-      addBotMsg("College timings are from 9:00 AM to 4:30 PM.");
-      reset();
+      addBotMsg("College timings are from 9:00 AM to 4:30 PM, Monday to Friday.");
+      goBack();
     }
 
     else if (option === "placements") {
-      addBotMsg("Our college provides excellent placement support with top recruiters.");
-      reset();
+      addBotMsg("Our college offers strong placement support with top companies recruiting every year.");
+      goBack();
     }
 
     else if (option === "facilities") {
-      addBotMsg("Select a facility:");
+      addBotMsg("We provide the following facilities. Please choose one:");
       setOptions([
         { text: "Library", value: "library" },
         { text: "Hostel", value: "hostel" }
@@ -71,23 +82,23 @@ function handleOption(option) {
   }
 
   else if (step === "branches") {
-    addBotMsg(option.toUpperCase() + " branch focuses on strong academics and career growth.");
-    reset();
+    addBotMsg(option.toUpperCase() + " branch focuses on quality academics, labs, and excellent career opportunities.");
+    goBack();
   }
 
   else if (step === "facilities") {
     if (option === "library") {
-      addBotMsg("Library is open from 8:00 AM to 8:00 PM with digital resources.");
+      addBotMsg("The library is open from 8:00 AM to 8:00 PM and includes digital resources.");
     } else {
-      addBotMsg("Separate hostel facilities are available for boys and girls.");
+      addBotMsg("Separate hostel facilities are available for boys and girls with all basic amenities.");
     }
-    reset();
+    goBack();
   }
 }
 
-function reset() {
+function goBack() {
   setTimeout(() => {
-    addBotMsg("What else would you like to know?");
+    addBotMsg("Is there anything else I can help you with? 🤖");
     setOptions([
       { text: "Courses", value: "courses" },
       { text: "Fees", value: "fees" },
@@ -96,5 +107,5 @@ function reset() {
       { text: "Facilities", value: "facilities" }
     ]);
     step = "main";
-  }, 500);
+  }, 800);
 }
