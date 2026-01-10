@@ -9,7 +9,7 @@ body {
 
 .chat-container {
   width: 360px;
-  background: white;
+  background: #fff;
   border-radius: 15px;
   overflow: hidden;
   display: flex;
@@ -26,33 +26,38 @@ body {
 }
 
 .chat-header img {
-  width: 35px;
-  height: 35px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
 }
 
 .chat-box {
   padding: 10px;
-  height: 320px;
+  height: 330px;
   overflow-y: auto;
-}
-
-.bot-msg, .user-msg {
-  max-width: 75%;
-  margin: 8px 0;
-  padding: 10px;
-  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
 }
 
 .bot-msg {
   background: #f1f1f1;
-  align-self: flex-start;
+  margin: 6px 0;
+  padding: 10px;
+  border-radius: 12px;
+  max-width: 80%;
+  white-space: pre-wrap;   /* ⭐ IMPORTANT */
+  line-height: 1.4;
 }
 
 .user-msg {
   background: #4a47a3;
   color: white;
+  margin: 6px 0;
+  padding: 10px;
+  border-radius: 12px;
+  max-width: 80%;
   align-self: flex-end;
+  white-space: pre-wrap;
 }
 
 .options {
@@ -65,7 +70,7 @@ body {
 .options button {
   background: #e0e0ff;
   border: none;
-  padding: 6px 10px;
+  padding: 6px 12px;
   border-radius: 20px;
   cursor: pointer;
 }
@@ -86,6 +91,6 @@ body {
   background: #4a47a3;
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 16px;
   cursor: pointer;
 }
