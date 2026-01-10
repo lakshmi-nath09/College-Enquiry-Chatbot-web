@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  font-family: Arial, sans-serif;
   height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +10,7 @@ body {
 
 .chat-container {
   width: 380px;
-  background: #ffffff;
+  background: #fff;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
@@ -20,8 +20,8 @@ body {
   background: #4a4aef;
   color: white;
   padding: 12px;
-  font-weight: bold;
   text-align: center;
+  font-weight: bold;
 }
 
 .logo {
@@ -31,7 +31,7 @@ body {
 }
 
 .chat-box {
-  height: 300px;
+  height: 320px;
   padding: 10px;
   overflow-y: auto;
   background: #f2f2f2;
