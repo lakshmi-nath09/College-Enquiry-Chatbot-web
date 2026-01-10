@@ -1,76 +1,91 @@
 body {
-  margin: 0;
-  height: 100vh;
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #667eea, #764ba2);
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .chat-container {
-  width: 380px;
-  background: #fff;
+  width: 360px;
+  background: white;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
 }
 
 .chat-header {
-  background: #4a4aef;
+  background: #4a47a3;
   color: white;
-  padding: 12px;
-  text-align: center;
-  font-weight: bold;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.logo {
-  height: 28px;
-  vertical-align: middle;
-  margin-right: 6px;
+.chat-header img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }
 
 .chat-box {
-  height: 320px;
   padding: 10px;
+  height: 320px;
   overflow-y: auto;
-  background: #f2f2f2;
+}
+
+.bot-msg, .user-msg {
+  max-width: 75%;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 12px;
 }
 
 .bot-msg {
-  background: #e0e0e0;
-  padding: 10px;
-  border-radius: 12px;
-  margin: 6px 0;
-  max-width: 80%;
+  background: #f1f1f1;
+  align-self: flex-start;
 }
 
 .user-msg {
-  background: #4a4aef;
+  background: #4a47a3;
   color: white;
-  padding: 10px;
-  border-radius: 12px;
-  margin: 6px 0;
-  max-width: 80%;
-  margin-left: auto;
+  align-self: flex-end;
 }
 
 .options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
   padding: 10px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
 }
 
 .options button {
-  background: #4a4aef;
-  color: white;
+  background: #e0e0ff;
   border: none;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 6px 10px;
+  border-radius: 20px;
   cursor: pointer;
 }
 
-.options button:hover {
-  background: #3737d4;
+.chat-input {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+.chat-input button {
+  background: #4a47a3;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
 }
