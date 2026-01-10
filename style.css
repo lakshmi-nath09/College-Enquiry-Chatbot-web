@@ -41,19 +41,19 @@ body {
 
 .bot-msg {
   background: #f1f1f1;
-  margin: 6px 0;
   padding: 10px;
+  margin: 6px 0;
   border-radius: 12px;
   max-width: 80%;
-  white-space: pre-wrap;   /* ⭐ IMPORTANT */
+  white-space: pre-wrap;
   line-height: 1.4;
 }
 
 .user-msg {
   background: #4a47a3;
   color: white;
-  margin: 6px 0;
   padding: 10px;
+  margin: 6px 0;
   border-radius: 12px;
   max-width: 80%;
   align-self: flex-end;
