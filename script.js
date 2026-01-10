@@ -2,24 +2,27 @@ const chatBox = document.getElementById("chat-box");
 const optionsDiv = document.getElementById("options");
 const userInput = document.getElementById("user-input");
 
+/* Add message */
 function addMessage(text, sender) {
   const msg = document.createElement("div");
   msg.className = sender === "bot" ? "bot-msg" : "user-msg";
-  msg.innerText = text;
+  msg.textContent = text;
   chatBox.appendChild(msg);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
+/* Typing effect – FIXED (no chipak text) */
 function typingEffect(text, callback) {
-  let i = 0;
   const msg = document.createElement("div");
   msg.className = "bot-msg";
   chatBox.appendChild(msg);
 
+  let i = 0;
   const interval = setInterval(() => {
-    msg.innerText += text[i];
+    msg.textContent = text.slice(0, i + 1);
     i++;
     chatBox.scrollTop = chatBox.scrollHeight;
+
     if (i >= text.length) {
       clearInterval(interval);
       if (callback) callback();
@@ -27,23 +30,36 @@ function typingEffect(text, callback) {
   }, 30);
 }
 
+/* Show buttons */
 function showOptions(options) {
   optionsDiv.innerHTML = "";
   options.forEach(opt => {
     const btn = document.createElement("button");
-    btn.innerText = opt;
+    btn.textContent = opt;
     btn.onclick = () => handleUserChoice(opt);
     optionsDiv.appendChild(btn);
   });
 }
 
+/* Button click */
 function handleUserChoice(choice) {
   addMessage(choice, "user");
   optionsDiv.innerHTML = "";
   setTimeout(() => chatbotReply(choice.toLowerCase()), 400);
 }
 
+/* Chatbot brain */
 function chatbotReply(input) {
+
+  // greetings (human typing)
+  if (["hi", "hii", "hello", "hey"].includes(input)) {
+    typingEffect(
+      "Hi there 😊\nHow can I help you today?",
+      showMainMenu
+    );
+    return;
+  }
+
   if (input === "courses") {
     typingEffect(
       "Great choice 😊\nWhich branch are you interested in?",
@@ -60,7 +76,7 @@ function chatbotReply(input) {
 
   else if (input === "subjects") {
     typingEffect(
-      "CSE includes Programming, Data Structures, AI and Web Technologies.",
+      "CSE includes Programming, Data Structures, AI, and Web Technologies.",
       askMore
     );
   }
@@ -88,7 +104,7 @@ function chatbotReply(input) {
 
   else if (input === "facilities") {
     typingEffect(
-      "Facilities include library, hostel, labs and sports 🏫",
+      "Facilities include library, hostel, labs, and sports 🏫",
       askMore
     );
   }
@@ -105,14 +121,17 @@ function chatbotReply(input) {
   }
 }
 
+/* Ask more */
 function askMore() {
   typingEffect("What else would you like to know?", showMainMenu);
 }
 
+/* Main menu */
 function showMainMenu() {
   showOptions(["Courses", "Fees", "Timings", "Placements", "Facilities"]);
 }
 
+/* Start bot */
 function startBot() {
   chatBox.innerHTML = "";
   typingEffect(
@@ -124,6 +143,7 @@ function startBot() {
   );
 }
 
+/* User typing */
 function sendUserMessage() {
   const text = userInput.value.trim();
   if (!text) return;
@@ -132,4 +152,5 @@ function sendUserMessage() {
   setTimeout(() => chatbotReply(text.toLowerCase()), 400);
 }
 
+/* INIT */
 startBot();
